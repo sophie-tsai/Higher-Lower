@@ -19,4 +19,4 @@ function drawNew(){
 
 drawNew();
 
-document.querySelector("#instructions").addEventListener("click", drawNew);
+document.querySelector("#deckOfCards").addEventListener("click", drawNew);

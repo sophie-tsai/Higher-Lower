@@ -10,11 +10,17 @@ body {
 #heading {
 	font-family: 'Righteous', cursive;
 	text-align: center;
-	font-size: 100px;
+	font-size: 7vw;
 	color: white;
-	text-shadow: 5px 5px 3px black;
 }
 
-#deckofCards {
-	text-align: center;
+#deckOfCards {
+	cursor: pointer;
+	display: block;
+	margin: 0 auto;
+}
+
+#signature {
+	color: white;
+	font-family: 'Montserrat',sans-serif;
 }
