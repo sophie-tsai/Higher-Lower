@@ -2,9 +2,12 @@ body {
 	background-color: #35654d;
 }
 
-#instructions {
+#errorMsg{
 	text-align: center;
-	color: black;
+	color: white;
+	font-family: 'Montserrat',sans-serif;
+	margin: 1vh 0vw 1vh;
+	font-size: 4vw;
 }
 
 #heading {
@@ -12,15 +15,20 @@ body {
 	text-align: center;
 	font-size: 7vw;
 	color: white;
+	margin: 2vh 0vw 3vh;
 }
 
 #deckOfCards {
 	cursor: pointer;
 	display: block;
 	margin: 0 auto;
+	width: 80%;
+	max-width: 475px;
 }
 
 #signature {
 	color: white;
 	font-family: 'Montserrat',sans-serif;
+	font-size: 20px;
+	margin: 1vh;
 }

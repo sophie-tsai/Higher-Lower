@@ -1,22 +1,50 @@
-function success(json){
-	const img = document.querySelector("#deckOfCards");
-	console.log(json);
-	img.src = json.cards[0].image;
+let deckCode;
+const errorMessage = document.querySelector("#errorMsg");
+setup();
+
+function setup() {
+	newDeck();
+	document.querySelector("#deckOfCards").addEventListener("click", drawCard);
 }
 
-function error(err){
-	const errorMessage = document.querySelector("#errorMsg");
-	errorMessage.innerText = "Error" + err;
-}
-
-function drawNew(){
-
-	const promise = fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=1");
-	promise.then((response)=> response.json())
-		.then(success);
+function newDeck() {
+	//fetches a brand new deck
+	const promise = fetch("https://deckofcardsapi.com/api/deck/new/");
+	promise.then((response) => response.json())
+		.then(newDeckSuccess);
 	promise.catch(error);
 }
 
-drawNew();
+function newDeckSuccess(json) {
+	deckCode = json.deck_id;
+	shuffleCards();
+	drawCard();
+}
 
-document.querySelector("#deckOfCards").addEventListener("click", drawNew);
+function drawCard() {
+	const promise = fetch(`https://deckofcardsapi.com/api/deck/${deckCode}/draw/?count=1`);
+	promise.then((response) => response.json())
+		.then(drawSuccess);
+	promise.catch(error);
+}
+
+function drawSuccess(json) {
+	if (json.cards.remaining === 0) {
+		shuffleCards();
+		return;
+	}
+	const img = document.querySelector("#deckOfCards");
+	img.src = json.cards[0].image;
+}
+
+function error(err) {
+	errorMessage.innerText = 'error:' + err;
+}
+
+function shuffleCards() {
+	const promise = fetch(`https://deckofcardsapi.com/api/deck/${deckCode}/shuffle/`)
+	promise.then((response) => response.json());
+	promise.catch(error);
+}
+
+
