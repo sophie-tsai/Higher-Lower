@@ -1,9 +1,7 @@
 # Higher-Lower
- Guess if the next card is higher or lower
+Description: Guess if the next card is higher or lower. See it live [here](https://sophie-tsai.github.io/Higher-Lower/).
 
-
-
-See it live [here](https://sophie-tsai.github.io/Higher-Lower/).
+First project using a live API.
 
 **Check out other projects:**
 - [Timer](https://sophie-tsai.github.io/Timer/)
